@@ -17,7 +17,7 @@ st.markdown("""
     }
     .stTabs [aria-selected="true"] { background-color:#004564 !important; color: #FFFFFF !important; }
     </style>
-    """, unsafe_allow_html=False)
+    """, unsafe_allow_html=True)
 
 # --- CLASSE PARA GERAR PDF ---
 class PDF(FPDF):
