@@ -57,14 +57,14 @@ with abas[0]:
    # O parâmetro 'format' altera a máscara de exibição para o padrão BR
     nascimento = col2.date_input(
     "Data de nascimento:",
-    value=datetime.date(2000, 1, 1), # Data que aparece selecionada por padrão
+    value=datetime.date(), # Data que aparece selecionada por padrão
     min_value=data_padrao,           # Limite inferior
     max_value=hoje,                   # Limite superior
     format="DD/MM/YYYY" )             # Formato de exibição brasileiro
     # 2. Cálculo Lógico da Idade
     # Subtrai os anos e ajusta -1 se o dia/mês atual for anterior ao nascimento
     idade = hoje.year - nascimento.year - ((hoje.month, hoje.day) < (nascimento.month, nascimento.day))
-    col1.markdown("Idade: ") 
+    col1.markdown("Idade:") 
     col1.info(f"{idade} anos")
     sexo = col2.selectbox("Sexo:", ["Masculino", "Feminino"])
     modalidade = col1.multiselect("Modalidade:", ["CrossFit", "Musculação", "Ambas"])
@@ -92,12 +92,7 @@ with abas[0]:
        
     st.text ("Se alguma resposta for SIM, é recomendada liberação MÉDICA.")
     
-
-
-
-
-
-    
+   
     
 # --- ABA 2: ANTROPOMETRIA ---
 with abas[1]:
