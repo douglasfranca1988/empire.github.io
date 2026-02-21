@@ -9,7 +9,7 @@ st.set_page_config(page_title="Empire Fitness - Avaliação Física", layout="wi
 st.markdown("""
     <style>
     .main { background-color: #f8f9fa; }
-    .stTabs [data-baseweb="tab-list"] { gap: 10px; }
+    .stTabs [data-baseweb="tab-list"] { gap: 100px; }
     .stTabs [data-baseweb="tab"] {
         background-color: #e2e8f0;
         border-radius: 4px 4px 0px 0px;
