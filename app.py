@@ -9,13 +9,13 @@ st.set_page_config(page_title="Empire Fitness - Avaliação Física", layout="wi
 st.markdown("""
     <style>
     .main { background-color: #f8f9fa; }
-    .stTabs [data-baseweb="tab-list"] { gap: 100px; }
+    .stTabs [data-baseweb="tab-list"] { gap: 10px; }
     .stTabs [data-baseweb="tab"] {
         background-color: #e2e8f0;
         border-radius: 4px 4px 0px 0px;
         padding: 10px 20px;
     }
-    .stTabs [aria-selected="true"] { background-color: #1E3A8A !important; color: white !important; }
+    .stTabs [aria-selected="true"] { background-color: 0f0e1b !important; color: white !important; }
     </style>
     """, unsafe_allow_html=True)
 
