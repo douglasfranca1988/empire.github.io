@@ -66,7 +66,7 @@ with abas[0]:
     # 2. Cálculo Lógico da Idade
     # Subtrai os anos e ajusta -1 se o dia/mês atual for anterior ao nascimento
     idade = hoje.year - nascimento.year - ((hoje.month, hoje.day) < (nascimento.month, nascimento.day))
-    col1.markdown("Idade:") 
+    col1.text("Idade:") 
     col1.info(f"{idade} anos")
     sexo = col2.selectbox("Sexo:", ["Masculino", "Feminino"])
     modalidade = col1.multiselect("Modalidade:", ["CrossFit", "Musculação", "Ambas"])
