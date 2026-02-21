@@ -15,7 +15,7 @@ st.markdown("""
         border-radius: 4px 4px 0px 0px;
         padding: 10px 20px;
     }
-    .stTabs [aria-selected="true"] { background-color:#000000 !important; color: white !important; }
+    .stTabs [aria-selected="true"] { background-color:#004564 !important; color: white !important; }
     </style>
     """, unsafe_allow_html=True)
 
