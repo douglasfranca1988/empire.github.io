@@ -90,7 +90,7 @@ with abas[0]:
     histsaude4 = colh2.text_area("4. Dores atuais:")
     histsaude5 = colh1.text_area("5. Uso de medicamentos:")
        
-    st.text ("Se alguma resposta for SIM, é recomendada liberação médica.")
+    st.text ("Se alguma resposta for SIM, é recomendada liberação MÉDICA.")
     
 
 
