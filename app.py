@@ -11,7 +11,7 @@ st.markdown("""
     .main { background-color: #fffff0; }
     .stTabs [data-baseweb="tab-list"] { gap: 10px; }
     .stTabs [data-baseweb="tab"] {
-        background-color: #000000;
+        background-color: #d0d0c4;
         border-radius: 4px 4px 0px 0px;
         padding: 10px 20px;
     }
