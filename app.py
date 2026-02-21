@@ -8,7 +8,7 @@ st.set_page_config(page_title="Empire Fitness - Avaliação Física", layout="wi
 # Estilo CSS para melhorar o visual
 st.markdown("""
     <style>
-    .main { background-color: #f8f9fa; }
+    .main { background-color: #fffff0; }
     .stTabs [data-baseweb="tab-list"] { gap: 10px; }
     .stTabs [data-baseweb="tab"] {
         background-color: #000000;
