@@ -15,7 +15,7 @@ st.markdown("""
         border-radius: 4px 4px 0px 0px;
         padding: 10px 20px;
     }
-    .stTabs [aria-selected="true"] { background-color:#004564 !important; color: white !important; }
+    .stTabs [aria-selected="true"] { background-color:#004564 !important; color: #897955 !important; }
     </style>
     """, unsafe_allow_html=True)
 
@@ -39,7 +39,7 @@ class PDF(FPDF):
         self.cell(0, 10, f'Página {self.page_no()}', 0, 0, 'C')
 
 # --- INTERFACE POR ABAS ---
-st.title("🛡️ Empire Fitness - Gestão de Avaliações")
+st.title("Empire Fitness - Gestão de Avaliações")
 abas = st.tabs([
     "👤 Dados Pessoais", "📏 Antropometria", "⭕ Perímetros", 
     "📉 Dobras Cutâneas", "🏃 Av. Funcional", "❤️ Risco Cardio", "🏁 Conclusão"
