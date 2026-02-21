@@ -11,11 +11,11 @@ st.markdown("""
     .main { background-color: #f8f9fa; }
     .stTabs [data-baseweb="tab-list"] { gap: 10px; }
     .stTabs [data-baseweb="tab"] {
-        background-color: #e2e8f0;
+        background-color: #000000;
         border-radius: 4px 4px 0px 0px;
         padding: 10px 20px;
     }
-    .stTabs [aria-selected="true"] { background-color: 0f0e1b !important; color: white !important; }
+    .stTabs [aria-selected="true"] { background-color:#000000 !important; color: white !important; }
     </style>
     """, unsafe_allow_html=True)
 
