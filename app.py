@@ -192,46 +192,47 @@ with abas[6]:
         pdf.cell(0, 10, format_text("1. DADOS PESSOAIS"), 0, 1, 'L', 1)
             
         pdf.set_font("Arial", 'B', 10)
-        pdf.write(8, format_text("Nome: "))
+        pdf.write(7, format_text("Nome: "))
         pdf.set_font("Arial", '', 10)
-        pdf.write(8, format_text(f"{nome}\n"))
+        pdf.write(7, format_text(f"{nome}\n"))
         pdf.set_font("Arial", 'B', 10)
-        pdf.write(8, format_text("Data de Nasc: "))
+        pdf.write(7, format_text("Data de Nasc: "))
         pdf.set_font("Arial", '', 10)
-        pdf.write(8, format_text(f"{nascimento.strftime('%d/%m/%Y')} ({idade} anos)\n"))
+        pdf.write(7, format_text(f"{nascimento.strftime('%d/%m/%Y')} ({idade} anos)\n"))
         pdf.set_font("Arial", 'B', 10)
-        pdf.write(8, format_text("Sexo: "))
+        pdf.write(7, format_text("Sexo: "))
         pdf.set_font("Arial", '', 10)
-        pdf.write(8, format_text(f"{sexo}"))
+        pdf.write(7, format_text(f"{sexo}"))
 
         pdf.set_x (45)
         pdf.set_font("Arial", 'B', 10)
-        pdf.write(8, format_text("Contato: "))
+        pdf.write(7, format_text("Contato: "))
         pdf.set_font("Arial", '', 10)
-        pdf.write(8, format_text(f"{contato}"))
+        pdf.write(7, format_text(f"{contato}"))
 
         pdf.set_x (100)
         pdf.set_font("Arial", 'B', 10)
-        pdf.write(8, format_text("E-mail: "))
+        pdf.write(7, format_text("E-mail: "))
         pdf.set_font("Arial", '', 10)
-        pdf.write(8, format_text(f"{email}\n"))
+        pdf.write(7, format_text(f"{email}\n"))
 
         pdf.set_font("Arial", 'B', 10)
-        pdf.write(8, format_text("Objetivo: "))
+        pdf.write(7, format_text("Objetivo: "))
         pdf.set_font("Arial", '', 10)
-        pdf.write(8, format_text(f"{', '.join(objetivo)}\n"))
+        pdf.write(7, format_text(f"{', '.join(objetivo)}\n"))
 
         pdf.set_font("Arial", 'B', 10)
-        pdf.write(8, format_text("Modalidade: "))
+        pdf.write(7, format_text("Modalidade: "))
         pdf.set_font("Arial", '', 10)
-        pdf.write(8, format_text(f"{', '.join(modalidade)}\n"))
+        pdf.write(7, format_text(f"{', '.join(modalidade)}"))
 
+        pdf.set_x(100)
         pdf.set_font("Arial", 'B', 10)
-        pdf.write(8, format_text("Tempo de pratica: "))
+        pdf.write(7, format_text("Tempo de pratica: "))
         pdf.set_font("Arial", '', 10)
-        pdf.write(8, format_text(f"{tempo_atividade} meses\n"))
+        pdf.write(7, format_text(f"{tempo_atividade} meses\n"))
 
-        # --- SEÇÃO 2: QUESTIONARIO DE PRONTIDÃO (PAR-Q) e HISTÓRICO DE SAÚDE ---
+        # --- SEÇÃO 2: QUESTIONARIO DE PRONTIDÃO (PAR-Q) ---
         pdf.ln(5)
         pdf.set_font("Arial", 'B', 12)
         pdf.cell(0, 10, format_text("2. QUESTIONARIO DE PRONTIDÃO (PAR-Q) e HISTÓRICO DE SAÚDE"), 0, 1, 'L', 1)
@@ -253,27 +254,27 @@ with abas[6]:
         pdf.set_font("Arial", 'B', 12)
         pdf.cell(0, 10, format_text("2.2 HISTÓRICO DE SAÚDE"), 0, 1, 'L', 1)
         pdf.set_font("Arial", '', 10)
-
+        linha = 6
         parq_txt = ("")
         pdf.set_font("Arial", 'B', 10)
-        pdf.write(8, format_text("Doenças diagnosticadas: "))
+        pdf.write(linha, format_text("Doenças diagnosticadas: "))
         pdf.set_font("Arial", '', 10)
-        pdf.write(8, format_text(f"{parq_txt}"f"{h_doencas if h_doencas else 'Nada consta'}\n"))
+        pdf.write(linha, format_text(f"{parq_txt}"f"{h_doencas if h_doencas else 'Nada consta'}\n"))
 
         pdf.set_font("Arial", 'B', 10)
-        pdf.write(8, format_text("Cirurgias prévias: "))
+        pdf.write(linha, format_text("Cirurgias prévias: "))
         pdf.set_font("Arial", '', 10)
-        pdf.write(8, format_text(f"{parq_txt}"f"{h_cirurgias if h_cirurgias else 'Nada consta'}\n")) 
+        pdf.write(linha, format_text(f"{parq_txt}"f"{h_cirurgias if h_cirurgias else 'Nada consta'}\n")) 
 
         pdf.set_font("Arial", 'B', 10)
-        pdf.write(8, format_text("Lesões musculares/articulares: "))
+        pdf.write(linha, format_text("Lesões musculares/articulares: "))
         pdf.set_font("Arial", '', 10)
-        pdf.write(8, format_text(f"{parq_txt}"f"{h_lesoes if h_lesoes else 'Nada consta'}\n"))
+        pdf.write(linha, format_text(f"{parq_txt}"f"{h_lesoes if h_lesoes else 'Nada consta'}\n"))
 
         pdf.set_font("Arial", 'B', 10)
-        pdf.write(8, format_text("Uso de Medicamentos: "))
+        pdf.write(linha, format_text("Uso de Medicamentos: "))
         pdf.set_font("Arial", '', 10)
-        pdf.write(8, format_text(f"{parq_txt}"f"{h_remedios if h_remedios else 'Não utiliza'}\n"))
+        pdf.write(linha, format_text(f"{parq_txt}"f"{h_remedios if h_remedios else 'Não utiliza'}\n"))
         
 # --- SEÇÃO 3: COMPOSICAO CORPORAL E MEDIDAS ---
         pdf.ln(5)
@@ -282,66 +283,104 @@ with abas[6]:
 
         # --- LINHA 1: PESO ---
         pdf.set_font("Arial", 'B', 10)
-        pdf.write(8, format_text("Peso: ")) # .write não precisa de largura, ele apenas "escreve"
+        pdf.write(linha, format_text("Peso: ")) # .write não precisa de largura, ele apenas "escreve"
         pdf.set_font("Arial", '', 10)
-        pdf.write(8, format_text(f"{peso}kg"))
+        pdf.write(linha, format_text(f"{peso}kg"))
 
         # --- LINHA 1: ALTURA ---
         pdf.set_x(55) 
         pdf.set_font("Arial", 'B', 10)
-        pdf.write(8, format_text("Altura: "))
+        pdf.write(linha, format_text("Altura: "))
         pdf.set_font("Arial", '', 10)
-        pdf.write(8, format_text(f"{altura}m"))
+        pdf.write(linha, format_text(f"{altura}m"))
 
         # --- LINHA 1: IMC ---
         pdf.set_x(110) # Espaçamento para o IMC na mesma linha
         pdf.set_font("Arial", 'B', 10)
-        pdf.write(8, format_text("IMC: "))
+        pdf.write(linha, format_text("IMC: "))
         pdf.set_font("Arial", '', 10)
-        pdf.write(8, format_text(f"{imc:.2f}\n")) # \n pula a linha
+        pdf.write(linha, format_text(f"{imc:.2f}\n")) # \n pula a linha
 
         # --- LINHA 2: CINTURA ---
         pdf.set_font("Arial", 'B', 10)
-        pdf.write(8, format_text("Cintura: "))
+        pdf.write(linha, format_text("Cintura: "))
         pdf.set_font("Arial", '', 10)
-        pdf.write(8, format_text(f"{cintura}cm"))
+        pdf.write(linha, format_text(f"{cintura}cm"))
         
         # --- LINHA 2: QUADRIL ---
         pdf.set_x(55) 
         pdf.set_font("Arial", 'B', 10)
-        pdf.write(8, format_text("Quadril: "))
+        pdf.write(linha, format_text("Quadril: "))
         pdf.set_font("Arial", '', 10)
-        pdf.write(8, format_text(f"{quadril}cm"))
+        pdf.write(linha, format_text(f"{quadril}cm"))
 
         # --- LINHA 2: RCQ ---
         pdf.set_x(110)
         pdf.set_font("Arial", 'B', 10)
-        pdf.write(8, format_text("RCQ: "))
+        pdf.write(linha, format_text("RCQ: "))
         pdf.set_font("Arial", '', 10)
-        pdf.write(8, format_text(f"{rcq:.2f}\n"))
+        pdf.write(linha, format_text(f"{rcq:.2f}\n"))
 
         # --- DOBRAS ---
         pdf.set_font("Arial", 'B', 10)
-        pdf.write(6, format_text("Dobras (mm): "))
+        pdf.write(linha, format_text("Dobras (mm): "))
         pdf.set_font("Arial", 'I', 10)
-        pdf.write(6, format_text(f"Tri: {tri} | Sub: {sub} | Sup: {sup} | Abd: {abd} | Coxa: {cox} | Peit: {pei} | Axi: {axi}\n"))
+        pdf.write(linha, format_text(f"Tri: {tri} | Sub: {sub} | Sup: {sup} | Abd: {abd} | Coxa: {cox} | Peit: {pei} | Axi: {axi}\n"))
 
         # --- RESULTADO FINAL ---
         pdf.set_font("Arial", 'B', 11)
-        pdf.cell(0, 10, format_text(f"PERCENTUAL DE GORDURA: {gordura:.2f}%"), 0, 1)
+        pdf.cell(linha, 10, format_text(f"PERCENTUAL DE GORDURA: {gordura:.2f}%"), 0, 1)
 
 
         # --- SEÇÃO 4: AVALIACAO FUNCIONAL E SALTO ---
         pdf.ln(5)
         pdf.set_font("Arial", 'B', 12)
         pdf.cell(0, 10, format_text("4. AVALIACAO FUNCIONAL E SALTO"), 0, 1, 'L', 1)
+        pdf.set_font("Arial", 'B', 10)
+        pdf.write(linha, format_text("Agachamento: "))
         pdf.set_font("Arial", '', 10)
-        pdf.cell(0, 8, format_text(f"Agachamento: {agachamento}"), 0, 0)
-        pdf.cell(0, 8, format_text(f"Flexao: {flexao}"), 0, 1)
-        pdf.cell(0, 8, format_text(f"Mob. Ombros: {mobilidade_o}"), 0, 0)
-        pdf.cell(0, 8, format_text(f"Mob. Quadril: {mobilidade_q}"), 0, 1)
-        pdf.ln(2)
-        pdf.multi_cell(0, 6, format_text(f"Salto Vertical: Elasticidade: {Elasticidade} | Altura: {Altura_salto} | Tempo Voo: {Tempodevoo} | Potencia: {Potencia}"))
+        pdf.write(linha, format_text(f"{agachamento}"))
+
+        pdf.set_x(65)
+        pdf.set_font("Arial", 'B', 10)
+        pdf.write(linha, format_text("Flexão: "))
+        pdf.set_font("Arial", '', 10)
+        pdf.write(linha, format_text(f"{flexao}"))
+
+        pdf.set_x(105)
+        pdf.set_font("Arial", 'B', 10)
+        pdf.write(linha, format_text("Mob. Ombros: "))
+        pdf.set_font("Arial", '', 10)
+        pdf.write(linha, format_text(f"{mobilidade_o}"))
+        
+        pdf.set_x(155)
+        pdf.set_font("Arial", 'B', 10)
+        pdf.write(linha, format_text("Mob. Quadril: "))
+        pdf.set_font("Arial", '', 10)
+        pdf.write(linha, format_text(f"{mobilidade_q}\n"))
+        
+        pdf.set_font("Arial", 'B', 10)
+        pdf.write(linha, format_text("Elasticidade: "))
+        pdf.set_font("Arial", '', 10)
+        pdf.write(linha, format_text(f"{Elasticidade}"))
+
+        pdf.set_x(65)
+        pdf.set_font("Arial", 'B', 10)
+        pdf.write(linha, format_text("Altura: "))
+        pdf.set_font("Arial", '', 10)
+        pdf.write(linha, format_text(f"{Altura_salto}cm"))
+
+        pdf.set_x(105)
+        pdf.set_font("Arial", 'B', 10)
+        pdf.write(linha, format_text("Tempo Voo: "))
+        pdf.set_font("Arial", '', 10)
+        pdf.write(linha, format_text(f"{Tempodevoo}ms"))
+
+        pdf.set_x(155)
+        pdf.set_font("Arial", 'B', 10)
+        pdf.write(linha, format_text("Potencia: "))
+        pdf.set_font("Arial", '', 10)
+        pdf.write(linha, format_text(f"{Potencia}\n \n"))
 
         # --- SEÇÃO 5: CONCLUSAO DO AVALIADOR ---
        
