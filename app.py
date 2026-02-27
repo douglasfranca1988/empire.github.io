@@ -66,7 +66,7 @@ abas = st.tabs([
 
 # --- ABA 1: DADOS PESSOAIS ---
 with abas[0]:
-    st.header("1. Dados Pessoais")
+    st.header("1. Dados Pessoais 1")
     col1, col2 = st.columns(2)
     nome = col1.text_input("Nome:")
     hoje = datetime.date.today()
