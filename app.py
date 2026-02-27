@@ -198,7 +198,7 @@ with abas[6]:
             f"Modalidade: {', '.join(modalidade)} | Tempo de pratica: {tempo_atividade} meses"        
         ))
         
-        # --- SEÇÃO 2: PAR-Q (LAÇO CORRIGIDO) ---
+        # --- SEÇÃO 2: QUESTIONARIO DE PRONTIDÃO (PAR-Q) e HISTÓRICO DE SAÚDE ---
         pdf.ln(5)
         pdf.set_font("Arial", 'B', 12)
         pdf.cell(0, 10, format_text("2. QUESTIONARIO DE PRONTIDÃO (PAR-Q) e HISTÓRICO DE SAÚDE"), 0, 1, 'L', 1)
@@ -222,7 +222,7 @@ with abas[6]:
         f"Uso de Medicamentos: {h_remedios if h_remedios else 'Não utiliza'}"
         ))
 
-        # --- SEÇÃO 3: MEDIDAS E COMPOSIÇÃO ---
+        # --- SEÇÃO 3: COMPOSICAO CORPORAL E MEDIDAS ---
         pdf.ln(5)
         pdf.set_font("Arial", 'B', 12)
         pdf.cell(0, 10, format_text("3. COMPOSICAO CORPORAL E MEDIDAS"), 0, 1, 'L', 1)
@@ -238,7 +238,7 @@ with abas[6]:
         pdf.set_font("Arial", 'B', 11)
         pdf.cell(0, 10, format_text(f"PERCENTUAL DE GORDURA: {gordura:.2f}%"), 0, 1)
 
-        # --- SEÇÃO 4: FUNCIONAL E SALTO ---
+        # --- SEÇÃO 4: AVALIACAO FUNCIONAL E SALTO ---
         pdf.ln(5)
         pdf.set_font("Arial", 'B', 12)
         pdf.cell(0, 10, format_text("4. AVALIACAO FUNCIONAL E SALTO"), 0, 1, 'L', 1)
@@ -250,7 +250,7 @@ with abas[6]:
         pdf.ln(2)
         pdf.multi_cell(0, 6, format_text(f"Salto Vertical: Elasticidade: {Elasticidade} | Altura: {Altura_salto} | Tempo Voo: {Tempodevoo} | Potencia: {Potencia}"))
 
-        # --- SEÇÃO 5: CONCLUSÃO ---
+        # --- SEÇÃO 5: CONCLUSAO DO AVALIADOR ---
         pdf.ln(5)
         pdf.set_font("Arial", 'B', 12)
         pdf.cell(0, 10, format_text("5. CONCLUSAO DO AVALIADOR"), 0, 1, 'L', 1)
