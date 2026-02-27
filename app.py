@@ -116,7 +116,7 @@ with abas[1]:
     imc = peso / (altura ** 2) if altura > 0 else 0
     st.info(f"IMC Calculado: {imc:.2f}")
 
-# --- ABA 3: PERÍMETROS ---
+# --- ABA 3: PERÍMETROS 2---
 with abas[2]:
     st.header("3. Perímetros Corporais")
     col_per1, col_per2 = st.columns(2)
