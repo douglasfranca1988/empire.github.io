@@ -3,6 +3,7 @@ from fpdf import FPDF
 import datetime
 import base64
 
+
 # --- CONFIGURAÇÃO DA PÁGINA ---
 st.set_page_config(page_title="Empire Fitness - Avaliação Física", layout="wide")
 
