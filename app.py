@@ -336,7 +336,7 @@ with abas[6]:
         # --- SEÇÃO 4: AVALIACAO FUNCIONAL E SALTO ---
         pdf.ln(5)
         pdf.set_font("Arial", 'B', 12)
-        pdf.cell(0, 10, format_text("4. AVALIACAO FUNCIONAL E SALTO"), 0, 1, 'L', 1)
+        pdf.cell(0, 10, format_text("4. AVALIACAO FUNCIONAL"), 0, 1, 'L', 1)
         pdf.set_font("Arial", 'B', 10)
         pdf.write(linha, format_text("Agachamento: "))
         pdf.set_font("Arial", '', 10)
@@ -392,16 +392,49 @@ with abas[6]:
         pdf.set_font("Arial", 'B', 12)
         pdf.cell(0, 10, format_text("5. CONCLUSAO DO AVALIADOR"), 0, 1, 'L', 1)
         pdf.set_font("Arial", '', 11)
-        pdf.multi_cell(0, 8, format_text(f"Perfil: {perfil} | Treino Indicado: {treino}\nObservacoes: {obs}"))
-            
+        pdf.multi_cell(0, 8, format_text(f"Perfil: {perfil} \n Treino Indicado: {treino}\nObservacoes: {obs}\n"))
+        pdf.multi_cell(0, 8, format_text(f"Risco por IMC elevado (>25): **{risco_imc}**"))
+        pdf.set_font("Arial", 'I', 9)
+       # Definindo o texto em uma variável com aspas triplas para manter a formatação
+        termo = (
+            f"Termo de Ciência e Declaração de Saúde\n\n"
+            f"Eu, [Nome do Cliente], declaro que li e conferi atentamente os dados da minha "
+            f"avaliação física e anamnese. Confirmo que todas as informações prestadas são "
+            f"verdadeiras e que não omiti nenhum fato sobre meu histórico médico ou condição atual.\n\n"
+            f"Declaro especificamente que:\n"
+            f"- Respondi ao Questionário de Prontidão para Atividade Física (PAR-Q) com total sinceridade.\n"
+            f"- Estou ciente de que a precisão destas informações é essencial para a segurança e eficácia do meu treinamento.\n"
+            f"- Caso tenha respondido 'SIM' a qualquer pergunta do PAR-Q, comprometo-me a buscar avaliação médica antes de iniciar as atividades.\n"
+            f"- Isento o avaliador e os profissionais responsáveis de quaisquer riscos ou danos advindos da prática de exercícios sem a devida liberação médica prévia.\n\n"
+            f"Por ser a expressão da verdade, firmo o presente termo."
+        )
+
+# Ajustando a posição inicial
+        pdf.set_y(pdf.get_y() + 5)
+        pdf.set_x(10)
+
+# Usando multi_cell para quebra automática de linha e respeito às margens
+# w=0 faz com que a célula se estenda até a margem direita
+        pdf.multi_cell(0, 5, termo, border=0, align='L')    
+        pdf.cell(0, 5, format_text(f"Relatório gerado em {datetime.datetime.now().strftime('%d/%m/%Y %H:%M:%S')}"), 0, 1, 'R')
         # ASSINATURA
         pdf.ln(20)
+        pdf.line(60, pdf.get_y(), 150, pdf.get_y())
+        pdf.set_font("Arial", 'B', 11)
+        pdf.cell(0, 10, format_text(f"{nome}"), 0, 1, 'C')
+        pdf.set_font("Arial", '', 10)
+        pdf.cell(0, 5, format_text(f"Aluno avaliado"), 0, 1, 'C\n \n')
+        
+
         pdf.line(60, pdf.get_y(), 150, pdf.get_y())
         pdf.set_font("Arial", 'B', 11)
         pdf.cell(0, 10, format_text(f"{avaliador}"), 0, 1, 'C')
         pdf.set_font("Arial", '', 10)
         pdf.cell(0, 5, format_text(f"CREF: {cref}"), 0, 1, 'C')
         
+
+
+
         # --- LÓGICA DE VISUALIZAÇÃO ---
         pdf_bytes = pdf.output(dest='S').encode('latin-1')
         base64_pdf = base64.b64encode(pdf_bytes).decode('utf-8')
