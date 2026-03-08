@@ -455,15 +455,13 @@ with abas[6]:
 
             # --- LÓGICA DE VISUALIZAÇÃO CORRIGIDA ---
         # Tente usar 'utf-8' no encode se o latin-1 falhar com caracteres especiais
-        pdf_bytes = pdf.output(dest='S').encode('latin-1') 
+        pdf_bytes = pdf.output(dest='S').encode('latin-1')
         base64_pdf = base64.b64encode(pdf_bytes).decode('utf-8')
-
-        # Usando <embed> em vez de <iframe>
-        pdf_display = f'<embed src="data:application/pdf;base64,{base64_pdf}" width="700" height="1000" type="application/pdf">'
-
+        pdf_display = f'<iframe src="data:application/pdf;base64,{base64_pdf}" width="100%" height="800" type="application/pdf"></iframe>'
+        
         st.markdown("### 👁️ Pré-visualização do Relatório")
         st.markdown(pdf_display, unsafe_allow_html=True)
-
+        
         st.download_button(
             label="📥 Confirmar e Baixar PDF",
             data=pdf_bytes,
