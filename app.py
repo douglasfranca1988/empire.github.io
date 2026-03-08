@@ -391,9 +391,26 @@ with abas[6]:
        
         pdf.set_font("Arial", 'B', 12)
         pdf.cell(0, 10, format_text("5. CONCLUSAO DO AVALIADOR"), 0, 1, 'L', 1)
-        pdf.set_font("Arial", '', 11)
-        pdf.multi_cell(0, 8, format_text(f"Perfil: {perfil} \n Treino Indicado: {treino}\nObservacoes: {obs}\n"))
-        pdf.multi_cell(0, 8, format_text(f"Risco por IMC elevado (>25): **{risco_imc}**"))
+        pdf.set_font("Arial", 'B', 10)
+        pdf.write(linha, format_text("Perfil: "))
+        pdf.set_font("Arial", '', 10)
+        pdf.write(linha, format_text(f"{perfil} \n"))
+        
+        pdf.set_font("Arial", 'B', 10)
+        pdf.write(linha, format_text("Treino Indicado: "))
+        pdf.set_font("Arial", '', 10)
+        pdf.write(linha, format_text(f"{treino} \n"))
+        
+        pdf.set_font("Arial", 'B', 10)
+        pdf.write(linha, format_text("Observações: "))
+        pdf.set_font("Arial", '', 10)
+        pdf.write(linha, format_text(f"{obs}\n"))
+        
+        pdf.set_font("Arial", 'B', 10)
+        pdf.write(linha, format_text("Risco por IMC elevado (>25): "))
+        pdf.set_font("Arial", '', 10)
+        pdf.write(linha, format_text(f"**{risco_imc}**\n"))
+        
         pdf.set_font("Arial", 'I', 9)
         pdf.set_font("Arial", 'B', 12)
         pdf.cell(0, 10, format_text("Termo de Ciência e Declaração de Saúde"), 0, 1, 'L', 1)
