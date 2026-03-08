@@ -400,7 +400,7 @@ with abas[6]:
        # Definindo o texto em uma variável com aspas triplas para manter a formatação
         pdf.set_font("Arial", 'I', 9)
         termo = (
-            f"Eu, {nome}, declaro que li e conferi atentamente os dados da minha "
+            f"Eu, {nome},declaro que li e conferi atentamente os dados da minha "
             f"avaliação física e anamnese. Confirmo que todas as informações prestadas são "
             f"verdadeiras e que não omiti nenhum fato sobre meu histórico médico ou condição atual.\n\n"
             f"Declaro especificamente que:\n"
@@ -425,18 +425,15 @@ with abas[6]:
         pdf.set_font("Arial", 'B', 11)
         pdf.cell(0, 10, format_text(f"{nome}"), 0, 1, 'C')
         pdf.set_font("Arial", 'I', 9)
-        pdf.cell(0, 5, format_text(f"Aluno avaliado \n\n\n\n"), 0, 1, 'C')
+        pdf.cell(0, 5, format_text(f"Aluno avaliado \n"), 0, 1, 'C')
         
-
+        pdf.ln(50)
         pdf.line(60, pdf.get_y(), 150, pdf.get_y())
         pdf.set_font("Arial", 'B', 11)
         pdf.cell(0, 10, format_text(f"{avaliador}"), 0, 1, 'C')
         pdf.set_font("Arial", '', 10)
-        pdf.cell(0, 5, format_text(f"CREF: {cref}\n \n \n \n \n"), 0, 1, 'C')
+        pdf.cell(0, 5, format_text(f"CREF: {cref}\n"), 0, 1, 'C')
         
-        pdf.cell(0, 5, format_text(f"Relatório gerado em {datetime.datetime.now().strftime('%d/%m/%Y %H:%M:%S')}"), 0, 1, 'R')
-
-
 
         # --- LÓGICA DE VISUALIZAÇÃO ---
         pdf_bytes = pdf.output(dest='S').encode('latin-1')
