@@ -111,8 +111,8 @@ with abas[0]:
 with abas[1]:
     st.header("2. Avaliação Antropométrica")
     col_ant1, col_ant2 = st.columns(2)
-    peso = col_ant1.number_input("Peso corporal (kg):", format="%.2f", value=70.0)
-    altura = col_ant2.number_input("Altura (m):", format="%.2f", value=1.70)
+    peso = col_ant1.number_input("Peso corporal (kg):", format="%.2f", value=0.0)
+    altura = col_ant2.number_input("Altura (m):", format="%.2f", value=0.0)
     imc = peso / (altura ** 2) if altura > 0 else 0
     st.info(f"IMC Calculado: {imc:.2f}")
 
