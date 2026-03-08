@@ -435,7 +435,7 @@ with abas[6]:
 # Usando multi_cell para quebra automática de linha e respeito às margens
 # w=0 faz com que a célula se estenda até a margem direita
         pdf.multi_cell(0, 5, termo, border=0, align='L')    
-        pdf.cell(0, 5, format_text(f"Relatório gerado em {datetime.datetime.now().strftime('%d/%m/%Y %H:%M:%S')}"), 0, 1, 'R')
+        pdf.cell(0, 5, format_text(f"Avaliação gerada em {datetime.datetime.now().strftime('%d/%m/%Y %H:%M:%S')}"), 0, 1, 'R')
         # ASSINATURA
         pdf.ln(20)
         pdf.line(60, pdf.get_y(), 150, pdf.get_y())
@@ -455,7 +455,7 @@ with abas[6]:
         # --- LÓGICA DE VISUALIZAÇÃO ---
         pdf_bytes = pdf.output(dest='S').encode('latin-1')
         base64_pdf = base64.b64encode(pdf_bytes).decode('utf-8')
-        pdf_display = f'<iframe src="data:application/pdf;base64,{base64_pdf}" width="100%" height="800" type="application/pdf"></iframe>'
+        pdf_display = f'<embed src="data:application/pdf;base64,{base64_pdf}" width="700" height="1000" type="application/pdf">'
         
         st.markdown("### 👁️ Pré-visualização do Relatório")
         st.markdown(pdf_display, unsafe_allow_html=True)
