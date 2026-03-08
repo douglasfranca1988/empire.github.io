@@ -160,11 +160,11 @@ with abas[4]:
     col_f3, col_f4 = st.columns(2)
     Elasticidade = col_f3.number_input("Elasticidade:")
     peso_salto = col_f4.number_input("Peso corporal p/ salto (kg):", value=peso)
-    Altura_salto = col_f3.number_input("Altura do Salto:")
-    Tempodevoo = col_f4.number_input("Tempo de Voo:")
-    Velocidade = col_f3.number_input("Velocidade do Salto:")
-    Forçammii = col_f4.number_input("Força MMII:")
-    Potencia = col_f3.number_input("Potência:")
+    Altura_salto = col_f3.number_input("Altura do Salto (cm):")
+    Tempodevoo = col_f4.number_input("Tempo de Voo (m/s):")
+    Velocidade = col_f3.number_input("Velocidade do Salto (m/s):")
+    Forçammii = col_f4.number_input("Força MMII (N):")
+    Potencia = col_f3.number_input("Potência (W):")
 
 # --- ABA 6: RISCO CARDIO ---
 with abas[5]:
@@ -360,6 +360,10 @@ with abas[6]:
         pdf.set_font("Arial", '', 10)
         pdf.write(linha, format_text(f"{mobilidade_q}\n"))
         
+        pdf.ln(5)
+        pdf.set_font("Arial", 'B', 12)
+        pdf.cell(0, 10, format_text("4.1 SALTO VERTICAL"), 0, 1, 'L', 1)
+
         pdf.set_font("Arial", 'B', 10)
         pdf.write(linha, format_text("Elasticidade: "))
         pdf.set_font("Arial", '', 10)
