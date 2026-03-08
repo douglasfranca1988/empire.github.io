@@ -400,7 +400,7 @@ with abas[6]:
        # Definindo o texto em uma variável com aspas triplas para manter a formatação
         pdf.set_font("Arial", 'I', 9)
         termo = (
-            f"Eu, "{nome},"declaro que li e conferi atentamente os dados da minha "
+            f"Eu, {nome}, declaro que li e conferi atentamente os dados da minha "
             f"avaliação física e anamnese. Confirmo que todas as informações prestadas são "
             f"verdadeiras e que não omiti nenhum fato sobre meu histórico médico ou condição atual.\n\n"
             f"Declaro especificamente que:\n"
